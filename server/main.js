@@ -7,14 +7,14 @@ sql = require('mssql');
 
 const config = {
     user: 'sa',
-    password: 'senha-super-segura-para-o-local-host',
+    password: 'ag0r@-3ss@-eh-segur4',
     server: 'localhost',
     database: 'TestDB'
 }
 
 Meteor.startup(() => {
     sql.connect(config, (err) => {
-        new sql.Request().query('SELECT * FROM sys.databases', (err, result) => {
+        new sql.Request().query('SELECT @@SERVERNAME', (err, result) => {
             if (err) {
                 console.log('--------- Connection error -----------');
                 console.log(err);
